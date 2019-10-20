@@ -1,31 +1,46 @@
 module Main exposing (Msg(..), main, update, view)
 
 import Browser
-import Html exposing (Html, button, div, text)
-import Html.Events exposing (onClick)
+import Html exposing (Html, button, div, input, text)
+import Html.Events exposing (onClick, onInput)
 
 
+main : Program () Model Msg
 main =
-    Browser.sandbox { init = 0, update = update, view = view }
+    Browser.element
+        { init = init
+        , view = view
+        , update = update
+        , subscriptions = \_ -> Sub.none
+        }
+
+
+type alias Model =
+    { value : String
+    }
+
+
+init : () -> ( Model, Cmd Msg )
+init _ =
+    ( { value = "type something below" }
+    , Cmd.none
+    )
 
 
 type Msg
-    = Increment
-    | Decrement
+    = UpdateModel String
 
 
+update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
-        Increment ->
-            model + 1
-
-        Decrement ->
-            model - 1
+        UpdateModel value ->
+            ( { model | value = value }, Cmd.none )
 
 
+view : Model -> Html Msg
 view model =
     div []
-        [ button [ onClick Decrement ] [ text "-" ]
-        , div [] [ text (String.fromInt model) ]
-        , button [ onClick Increment ] [ text "+" ]
+        [ div [] [ text model.value ]
+        , input [ onInput UpdateModel ] []
         ]
