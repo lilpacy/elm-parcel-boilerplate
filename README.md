@@ -4,6 +4,7 @@
 
 ```shell:
 git clone git@github.com:lilpacy/elm-parcel-min.git
+cd elm-parcel-min
 sh setup.sh
 ```
 
