@@ -1,5 +1,7 @@
 .git
 .cache
+.DS_Store
+*.swp
 
 node_modules
 dist
