@@ -3,7 +3,7 @@
 ## How to setup
 
 ```shell:
-git clone git@github.com:lilpacy/elm-parcel-bilerplate.git
+git clone git@github.com:lilpacy/elm-parcel-boilerplate.git
 cd elm-parcel-min
 sh setup.sh
 ```
