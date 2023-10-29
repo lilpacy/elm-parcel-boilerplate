@@ -4,7 +4,7 @@
 
 ```shell:
 git clone git@github.com:lilpacy/elm-parcel-boilerplate.git
-cd elm-parcel-min
+cd elm-parcel-boilerplate
 sh setup.sh
 ```
 
